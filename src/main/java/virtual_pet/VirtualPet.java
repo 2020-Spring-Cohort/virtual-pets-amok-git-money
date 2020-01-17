@@ -8,7 +8,7 @@ public class VirtualPet {
     public int health = 10;
     public int hunger = 10;
     public int cleanliness = 10;
-    public int thirst = 0;
+    public int thirst = 5;
 
     public VirtualPet(String petName, String color) {
         this.petName = petName;
@@ -71,6 +71,10 @@ public class VirtualPet {
 
     public int getBoredomLevel() {
         return boredomLevel;
+    }
+
+    public int getThirst() {
+        return thirst;
     }
 }
 

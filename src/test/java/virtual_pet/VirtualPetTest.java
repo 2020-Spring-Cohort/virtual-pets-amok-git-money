@@ -90,5 +90,16 @@ underTest.play();
         int result = underTest.getHealth();
         assertEquals(10,result);
     }
+    @Test
+    public void thirstShouldBeFive(){
+        int result = underTest.getThirst();
+        assertEquals(5,result);
+    }
+    @Test
+    public void waterPetShouldDecreaseThirstByThree(){
+        underTest.waterPet();
+        int result = underTest.getThirst();
+        assertEquals(2,result);
+    }
 
 }
