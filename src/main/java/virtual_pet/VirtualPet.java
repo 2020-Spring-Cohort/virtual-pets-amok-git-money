@@ -3,14 +3,14 @@ package virtual_pet;
 public class VirtualPet {
     public String petName = "";
     public String color = "";
-    public int weight = 0;
+    public int weight = 5;
     public int boredomLevel = 0;
     public int health = 10;
     public int hunger = 10;
     public int cleanliness = 10;
     public int thirst = 0;
 
-    public VirtualPet(String petName, String type, String color) {
+    public VirtualPet(String petName, String color) {
         this.petName = petName;
         this.color = color;
     }
@@ -19,6 +19,10 @@ public class VirtualPet {
         hunger-=3;
         if(hunger < 0){
             hunger = 0;
+        }
+        weight+=2;
+        if(weight < 1){
+            weight = 1;
         }
     }
     public void play(){
