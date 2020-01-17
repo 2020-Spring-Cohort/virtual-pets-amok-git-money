@@ -54,10 +54,5 @@ public class VirtualPetTest {
         assertEquals(10, result);
     }
     @Test
-    public void cleaningShouldIncreaseCleanliness(){
-        VirtualPet underTest = new VirtualPet("Bob", "robot", "black");
-        underTest.clean();
-        int result = underTest.getCleanliness();
-        assertEquals(10, result);
-    }
+
 }

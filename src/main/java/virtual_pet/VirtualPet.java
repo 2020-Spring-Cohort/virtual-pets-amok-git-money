@@ -7,7 +7,7 @@ public class VirtualPet {
     public int boredomLevel = 0;
     public int health = 10;
     public int hunger = 10;
-    public int cleanliness = 7;
+    public int cleanliness = 10;
     public int thirst = 0;
 
     public VirtualPet(String petName, String type, String color) {
