@@ -4,7 +4,7 @@ public class VirtualPet {
     public String petName = "";
     public String color = "";
     public int weight = 5;
-    public int boredomLevel = 0;
+    public int boredomLevel = 5;
     public int health = 10;
     public int hunger = 10;
     public int cleanliness = 10;
@@ -21,12 +21,10 @@ public class VirtualPet {
             hunger = 0;
         }
         weight+=2;
-        if(weight < 1){
-            weight = 1;
-        }
+
     }
     public void play(){
-        boredomLevel-=3;
+        boredomLevel-=2;
         if(boredomLevel < 0){
             boredomLevel=0;
         }
@@ -65,6 +63,14 @@ public class VirtualPet {
 
     public int getCleanliness() {
         return cleanliness;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public int getBoredomLevel() {
+        return boredomLevel;
     }
 }
 
