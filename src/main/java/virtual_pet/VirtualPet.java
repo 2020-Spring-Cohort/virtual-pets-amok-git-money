@@ -76,5 +76,13 @@ public class VirtualPet {
     public int getThirst() {
         return thirst;
     }
+
+    public void tick() {
+ weight--;
+ hunger++;
+ boredomLevel++;
+ cleanliness--;
+ thirst++;
+    }
 }
 

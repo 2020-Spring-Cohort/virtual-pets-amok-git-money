@@ -101,5 +101,14 @@ underTest.play();
         int result = underTest.getThirst();
         assertEquals(2,result);
     }
+       @Test
+    public void shouldHaveTickMethod(){
+        underTest.tick();
+        int result = underTest.getThirst();
+        assertEquals(6,result);
+           int resultWeight = underTest.getWeight();
+           assertEquals(4,resultWeight);
+
+       }
 
 }
