@@ -10,12 +10,12 @@ public class Application {
         System.out.println("");
 
         menu();
-        VirtualPet virtualPet1=new VirtualPet("bob","red");
-        VirtualPet virtualPet2=new VirtualPet("sou","green");
-        VirtualPet virtualPet3=new VirtualPet("daq","violet");
-        VirtualPetShelter.addANewPet();
+        VirtualPetShelter.addANewPet(new VirtualPet("Sam", " Green"));
+        VirtualPetShelter.addANewPet(new VirtualPet("Bob", " Blue"));
+        VirtualPetShelter.addANewPet(new VirtualPet("Josh", " Purple"));
 
 VirtualPetShelter.displayAllPets();
+VirtualPetShelter.feedAPet("Sam");
 
         }
     public  static void menu(){
@@ -25,6 +25,7 @@ VirtualPetShelter.displayAllPets();
         System.out.println("[1] Start Game");
         System.out.println("[1] Start Game");
         System.out.println("[5] Quit Game");
-    }
+
+       }
 
 }
