@@ -14,8 +14,8 @@ public class VirtualPetShelter {
     public static void displayAllPets() {
         for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
             System.out.println("Pet Name : " + pet.getValue().petName);
-            System.out.println("Boredm Level : " + pet.getValue().boredomLevel);
-            System.out.println(" Cleanliness : " + pet.getValue().cleanliness);
+            System.out.println("Boredom : " + pet.getValue().boredomLevel);
+            System.out.println("Cleanliness : " + pet.getValue().cleanliness);
             System.out.println("Color : " + pet.getValue().color);
             System.out.println("Health : " + pet.getValue().health);
             System.out.println("Weight : " + pet.getValue().weight);
@@ -53,6 +53,53 @@ public class VirtualPetShelter {
 
     }
 
+
+    public static void bringToVet(String name) {
+        if (petList.containsKey(name)){
+        for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
+            if (pet.getKey().equals(name)) {
+                pet.getValue().takeToDoctor();
+                System.out.println(name + " Has been gone to the doctor");
+            }
+        }
+        }else{
+            System.out.println("That pet is not here");
+        }
+        tickAllPets();
+    }
+    public static void tickAllPets(){
+        for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
+                pet.getValue().tick();
+        }
+    }
+
+    public static void playWithPet(String name) {
+        if (petList.containsKey(name)){
+            for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
+                if (pet.getKey().equals(name)) {
+                    pet.getValue().play();
+                    System.out.println("You played with " + name);
+                }
+            }
+        }else{
+            System.out.println("That pet is not here");
+        }
+        tickAllPets();
+    }
+
+    public static void giveWaterToPet(String name) {
+        if (petList.containsKey(name)){
+            for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
+                if (pet.getKey().equals(name)) {
+                    pet.getValue().waterPet();
+                    System.out.println("You gave water to " + name);
+                }
+            }
+        }else{
+            System.out.println("That pet is not here");
+        }
+        tickAllPets();
+    }
 }
 
 
