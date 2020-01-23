@@ -11,9 +11,9 @@ public class Application {
         VirtualPetShelter.addANewPet(new VirtualPet("Sam", " Green"));
         VirtualPetShelter.addANewPet(new VirtualPet("Bob", " Blue"));
         VirtualPetShelter.addANewPet(new VirtualPet("Josh", " Purple"));
-        System.out.println("|--------------------------|");
-        System.out.println("|Welcome to virtual Pet Gme|");
-        System.out.println("|--------------------------|");
+        System.out.println("|---------------------------|");
+        System.out.println("|Welcome to virtual Pet Game|");
+        System.out.println("|---------------------------|");
         System.out.println("");
         while(quitGame == 0) {
 
@@ -35,10 +35,12 @@ public class Application {
         System.out.println("[4] Play with the pet");
         System.out.println("[5] Give water to the pet");
         System.out.println("[6] Clean the pet");
-        System.out.println("[7] Quit Game");
+        System.out.println("[7] Add A New Pet");
+        System.out.println("[8] Quit Game");
 
 
-       }
+
+    }
 
        public static void game(){
            Scanner input = new Scanner(System.in);
@@ -65,13 +67,30 @@ public class Application {
                    System.out.println("Enter name of pet to play with");
                    String animalToPlayWith = input.nextLine();
                    VirtualPetShelter.playWithPet(animalToPlayWith);
+                   break;
                case 5:
                    System.out.println("Enter name of pet to water");
                    String animalToWater = input.nextLine();
                    VirtualPetShelter.giveWaterToPet(animalToWater);
+                   break;
+               case 6:
+                   System.out.println("Enter name of pet to clean their cage");
+                   String animalToClean = input.nextLine();
+                   VirtualPetShelter.cleanCage(animalToClean);
+                   break;
                case 7:
+                   System.out.println("Enter name of new pet");
+                   String nameOfNewPet = input.nextLine();
+                   System.out.println("Enter color for new pet");
+                   String colorOfNewPet = input.nextLine();
+                   VirtualPetShelter.addANewPet(new VirtualPet(nameOfNewPet, colorOfNewPet));
+                   System.out.println(nameOfNewPet + " has been added to the shelter");
+                   break;
+               case 8:
                    System.out.println("Exited Game");
                    quitGame = 1;
+                   break;
+
            }
        }
 
