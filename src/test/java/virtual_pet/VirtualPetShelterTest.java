@@ -13,14 +13,14 @@ public class VirtualPetShelterTest {
     }
     @Test
     public void shouldHaveAListOfPet(){
-
-        int result = VirtualPetShelter.petList.size();
+VirtualPetShelter myShelter = new VirtualPetShelter();
+        int result = myShelter.petList.size();
         assertEquals(0,result);
     }
     @Test
     public void ShouldBeAbleToAddAPet(){
         VirtualPetShelter underTest= new VirtualPetShelter();
-        underTest.addANewPet();
+        underTest.addANewPet(new VirtualPet("steve","yellow"));
         Boolean result = underTest.petList.containsKey("steve");
         assertEquals(true,result);
 

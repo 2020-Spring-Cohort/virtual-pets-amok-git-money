@@ -7,21 +7,26 @@ import java.util.Scanner;
 public class Application {
    static int quitGame = 0;
 
+
     public static void main(String[] args) {
-        VirtualPetShelter.addANewPet(new VirtualPet("Sam", "Green"));
-        VirtualPetShelter.addANewPet(new VirtualPet("Bob", "Blue"));
-        VirtualPetShelter.addANewPet(new VirtualPet("Josh", "Purple"));
+        VirtualPetShelter shelter = new VirtualPetShelter();
+        shelter.addANewPet(new VirtualPet("Sam", "Green"));
+        shelter.addANewPet(new VirtualPet("Bob", "Blue"));
+        shelter.addANewPet(new VirtualPet("Josh", "Purple"));
+
         System.out.println("|---------------------------|");
         System.out.println("|Welcome to virtual Pet Game|");
         System.out.println("|---------------------------|");
         System.out.println("");
+
+
         while(quitGame == 0) {
 
 
             menu();
 
 
-            game();
+            game(shelter);
 
         }
 
@@ -42,7 +47,8 @@ public class Application {
 
     }
 
-       public static void game(){
+       public static void game(VirtualPetShelter shelter){
+
            Scanner input = new Scanner(System.in);
            int choice= input.nextInt();
            input.nextLine();
@@ -50,40 +56,40 @@ public class Application {
            switch (choice){
 
                case 1:
-                   VirtualPetShelter.displayAllPets();
+                   shelter.displayAllPets();
                    break;
                case 2:
                    System.out.println("Enter name of pet to feed" + "\n"+ "Enter \"all\" if you want to feed all the pets");
 
                    String animalToFeed=input.nextLine();
-                   VirtualPetShelter.feedAPet(animalToFeed);
+                   shelter.feedAPet(animalToFeed);
                    break;
                case 3:
                    System.out.println("Enter name of pet to take to doctor ");
                    String animalToTakeToDoctor = input.nextLine();
-                   VirtualPetShelter.bringToVet(animalToTakeToDoctor);
+                   shelter.bringToVet(animalToTakeToDoctor);
                    break;
                case 4:
                    System.out.println("Enter name of pet to play with");
                    String animalToPlayWith = input.nextLine();
-                   VirtualPetShelter.playWithPet(animalToPlayWith);
+                   shelter.playWithPet(animalToPlayWith);
                    break;
                case 5:
                    System.out.println("Enter name of pet to water");
                    String animalToWater = input.nextLine();
-                   VirtualPetShelter.giveWaterToPet(animalToWater);
+                   shelter.giveWaterToPet(animalToWater);
                    break;
                case 6:
                    System.out.println("Enter name of pet to clean their cage");
                    String animalToClean = input.nextLine();
-                   VirtualPetShelter.cleanCage(animalToClean);
+                   shelter.cleanCage(animalToClean);
                    break;
                case 7:
                    System.out.println("Enter name of new pet");
                    String nameOfNewPet = input.nextLine();
                    System.out.println("Enter color for new pet");
                    String colorOfNewPet = input.nextLine();
-                   VirtualPetShelter.addANewPet(new VirtualPet(nameOfNewPet, colorOfNewPet));
+                   shelter.addANewPet(new VirtualPet(nameOfNewPet, colorOfNewPet));
                    System.out.println(nameOfNewPet + " has been added to the shelter");
                    break;
                case 8:

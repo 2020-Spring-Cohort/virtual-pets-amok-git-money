@@ -3,16 +3,16 @@ package virtual_pet;
 import java.util.HashMap;
 import java.util.Map;
 
-public class VirtualPetShelter {
-    public static Map<String, VirtualPet> petList = new HashMap<>();
+public  class VirtualPetShelter {
+    public  Map<String, VirtualPet> petList = new HashMap<>();
 
-    public static void addANewPet(VirtualPet virtualPet) {
+    public  void addANewPet(VirtualPet virtualPet) {
 
         petList.put(virtualPet.petName, virtualPet);
     }
 
 
-    public static void displayAllPets() {
+    public  void displayAllPets() {
 //        for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
 //            System.out.println("Pet Name : " + pet.getValue().petName);
 //            System.out.println("Boredom : " + pet.getValue().boredomLevel);
@@ -43,7 +43,7 @@ public class VirtualPetShelter {
 
     }
 
-    public static void feedAPet(String name) {
+    public  void feedAPet(String name) {
         if(name.equalsIgnoreCase("All")){
             for (Map.Entry<String, VirtualPet> pet : petList.entrySet()){
                 pet.getValue().feed();
@@ -71,7 +71,7 @@ public class VirtualPetShelter {
     }
 
 
-    public static void bringToVet(String name) {
+    public  void bringToVet(String name) {
         if (petList.containsKey(name)){
         for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
             if (pet.getKey().equals(name)) {
@@ -84,13 +84,13 @@ public class VirtualPetShelter {
         }
         tickAllPets();
     }
-    public static void tickAllPets(){
+    public  void tickAllPets(){
         for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
                 pet.getValue().tick();
         }
     }
 
-    public static void playWithPet(String name) {
+    public  void playWithPet(String name) {
         if (petList.containsKey(name)){
             for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
                 if (pet.getKey().equals(name)) {
@@ -104,7 +104,7 @@ public class VirtualPetShelter {
         tickAllPets();
     }
 
-    public static void giveWaterToPet(String name) {
+    public  void giveWaterToPet(String name) {
         if (petList.containsKey(name)){
             for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
                 if (pet.getKey().equals(name)) {
@@ -118,7 +118,7 @@ public class VirtualPetShelter {
         tickAllPets();
     }
 
-    public static void cleanCage(String name) {
+    public  void cleanCage(String name) {
         if (petList.containsKey(name)){
             for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
                 if (pet.getKey().equals(name)) {
