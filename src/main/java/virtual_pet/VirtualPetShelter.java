@@ -13,45 +13,21 @@ public class VirtualPetShelter {
 
 
     public static void displayAllPets() {
-//        for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
-//            System.out.println("Pet Name : " + pet.getValue().petName);
-//            System.out.println("Boredom : " + pet.getValue().boredomLevel);
-//            System.out.println("Cleanliness : " + pet.getValue().cleanliness);
-//            System.out.println("Color : " + pet.getValue().color);
-//            System.out.println("Health : " + pet.getValue().health);
-//            System.out.println("Weight : " + pet.getValue().weight);
-//            System.out.println("Thirst : " + pet.getValue().thirst);
-//            System.out.println("Hunger :" + pet.getValue().hunger);
-//
-//
-//        }
-        System.out.println("|-<Name>-| |<Color>| - |<Boredom>| - |<Cleanliness>| - |<Health>| |<Weight>| |<Thirst>| |<Hunger>|");
-//        leftAlignFormat, "some data" + i, i * i
-        String leftAlignFormat = "| %-15s | %-15s | %-4d | %-4d | %-4d | %-4d | %-4d | %-4d |%n";
-
-        System.out.format("+-----------------+------+%n");
-        System.out.format("| Column name     | ID   |%n");
-        System.out.format("+-----------------+------+%n");
-
         for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
-
-
-            System.out.printf(leftAlignFormat + pet.getValue().petName);
-            System.out.printf(leftAlignFormat+ pet.getValue().color);
-            System.out.printf(leftAlignFormat+ pet.getValue().boredomLevel);
-            System.out.printf(leftAlignFormat+ pet.getValue().cleanliness);
-            System.out.printf(leftAlignFormat+ pet.getValue().health);
-            System.out.printf(leftAlignFormat+ pet.getValue().weight);
-            System.out.printf(leftAlignFormat+ pet.getValue().thirst);
-            System.out.printf(leftAlignFormat+ pet.getValue().hunger);
-            System.out.println("\n");
-
-            System.out.println("-----------------------------------");
-            System.out.println("\n");
+            System.out.println("Pet Name : " + pet.getValue().petName);
+            System.out.println("Boredom : " + pet.getValue().boredomLevel);
+            System.out.println("Cleanliness : " + pet.getValue().cleanliness);
+            System.out.println("Color : " + pet.getValue().color);
+            System.out.println("Health : " + pet.getValue().health);
+            System.out.println("Weight : " + pet.getValue().weight);
+            System.out.println("Thirst : " + pet.getValue().thirst);
+            System.out.println("Hunger :" + pet.getValue().hunger);
 
 
         }
-        System.out.format("+-----------------+------+%n");
+
+
+
 
     }
 
