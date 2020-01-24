@@ -8,9 +8,9 @@ public class Application {
    static int quitGame = 0;
 
     public static void main(String[] args) {
-        VirtualPetShelter.addANewPet(new VirtualPet("Sam", " Green"));
-        VirtualPetShelter.addANewPet(new VirtualPet("Bob", " Blue"));
-        VirtualPetShelter.addANewPet(new VirtualPet("Josh", " Purple"));
+        VirtualPetShelter.addANewPet(new VirtualPet("Sam", "Green"));
+        VirtualPetShelter.addANewPet(new VirtualPet("Bob", "Blue"));
+        VirtualPetShelter.addANewPet(new VirtualPet("Josh", "Purple"));
         System.out.println("|---------------------------|");
         System.out.println("|Welcome to virtual Pet Game|");
         System.out.println("|---------------------------|");
