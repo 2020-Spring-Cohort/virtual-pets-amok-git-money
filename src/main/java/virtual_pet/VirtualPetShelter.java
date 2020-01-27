@@ -25,15 +25,15 @@ public  class VirtualPetShelter {
 //
 //
 //        }
-        String headerAlignFormat = "| %-15s | %-15s | %-9s | %-9s | %-9s | %-9s | %-9s | %-9s |%n";
+        String headerAlignFormat = "| %-15s | %-15s | %-15s | %-9s | %-9s | %-9s | %-9s | %-9s | %-9s |%n";
 
-        System.out.printf(headerAlignFormat, "Name ","Color","Boredom ","Clean ","Health ","Weight ","Thirst ","Hunger ");
-        System.out.println("+-----------------+-----------------+-----------+-----------+-----------+-----------+-----------+-----------+");
+        System.out.printf(headerAlignFormat, "Name ","Color","Type","Boredom ","Clean ","Health ","Weight ","Thirst ","Hunger ");
+        System.out.println("+-----------------+-----------------+-----------------+-----------+-----------+-----------+-----------+-----------+-----------+");
 
-        String leftAlignFormat = "| %-15s | %-15s | %-9d | %-9d | %-9d | %-9d | %-9d | %-9d |%n";
+        String leftAlignFormat = "| %-15s | %-15s | %-15s | %-9d | %-9d | %-9d | %-9d | %-9d | %-9d |%n";
         for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
-            System.out.printf(leftAlignFormat, pet.getValue().petName, pet.getValue().color, pet.getValue().boredomLevel, pet.getValue().cleanliness, pet.getValue().health, pet.getValue().weight, pet.getValue().thirst, pet.getValue().hunger);
-            System.out.println("+-----------------+-----------------+-----------+-----------+-----------+-----------+-----------+-----------+");
+            System.out.printf(leftAlignFormat, pet.getValue().petName, pet.getValue().color, pet.getValue().getType()+" "+pet.getValue().getSpecies(), pet.getValue().boredomLevel, pet.getValue().cleanliness, pet.getValue().health, pet.getValue().weight, pet.getValue().thirst, pet.getValue().hunger);
+            System.out.println("+-----------------+-----------------+-----------------+-----------+-----------+-----------+-----------+-----------+-----------+");
 
 
 

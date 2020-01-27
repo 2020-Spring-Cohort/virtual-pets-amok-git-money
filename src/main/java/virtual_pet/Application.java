@@ -10,9 +10,9 @@ public class Application {
 
     public static void main(String[] args) {
         VirtualPetShelter shelter = new VirtualPetShelter();
-        shelter.addANewPet(new VirtualPet("Sam", "Green"));
-        shelter.addANewPet(new VirtualPet("Bob", "Blue"));
-        shelter.addANewPet(new VirtualPet("Josh", "Purple"));
+        shelter.addANewPet(new Organic("Sam", "Green","Cat"));
+        shelter.addANewPet(new Organic("Bob", "Blue","Dog"));
+        shelter.addANewPet(new Robotic("Josh", "Purple","Dog"));
 
         System.out.println("|---------------------------|");
         System.out.println("|Welcome to virtual Pet Game|");
@@ -40,8 +40,9 @@ public class Application {
         System.out.println("[4] Play with the pet");
         System.out.println("[5] Give water to the pet");
         System.out.println("[6] Clean the pet");
-        System.out.println("[7] Add A New Pet");
-        System.out.println("[8] Quit Game");
+        System.out.println("[7] Add A New Organic Pet");
+        System.out.println("[8] Add A New Robotic Pet");
+        System.out.println("[9] Quit Game");
 
 
 
@@ -85,14 +86,26 @@ public class Application {
                    shelter.cleanCage(animalToClean);
                    break;
                case 7:
-                   System.out.println("Enter name of new pet");
-                   String nameOfNewPet = input.nextLine();
-                   System.out.println("Enter color for new pet");
-                   String colorOfNewPet = input.nextLine();
-                   shelter.addANewPet(new VirtualPet(nameOfNewPet, colorOfNewPet));
-                   System.out.println(nameOfNewPet + " has been added to the shelter");
+                   System.out.println("Enter name of new  Organic pet");
+                   String nameOfNewOrganicPet = input.nextLine();
+                   System.out.println("Enter color for new  Organic pet");
+                   String colorOfNewOrganicPet = input.nextLine();
+                   System.out.println("Enter species of pet ('Cat' or 'Dog'");
+                   String speciesOfNewOrganicPet = input.nextLine();
+                   shelter.addANewPet(new Organic(nameOfNewOrganicPet, colorOfNewOrganicPet,speciesOfNewOrganicPet));
+                   System.out.println(nameOfNewOrganicPet + " has been added to the shelter");
                    break;
                case 8:
+                   System.out.println("Enter name of new  Robotic pet");
+                   String nameOfNewRoboticPet = input.nextLine();
+                   System.out.println("Enter color for new  Robotic pet");
+                   String colorOfNewRoboticPet = input.nextLine();
+                   System.out.println("Enter species of pet ('Cat' or 'Dog'");
+                   String speciesOfNewRoboticPet = input.nextLine();
+                   shelter.addANewPet(new Organic(nameOfNewRoboticPet, colorOfNewRoboticPet,speciesOfNewRoboticPet));
+                   System.out.println(nameOfNewRoboticPet + " has been added to the shelter");
+                   break;
+               case 9:
                    System.out.println("Exited Game");
                    quitGame = 1;
                    break;

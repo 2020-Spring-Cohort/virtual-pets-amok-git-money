@@ -1,14 +1,22 @@
 package virtual_pet;
 
-public class VirtualPet {
+public abstract class VirtualPet {
     public String petName = "";
     public String color = "";
+
+
+
+    public String species="";
     public int weight = 5;
     public int boredomLevel = 5;
-    public int health = 10;
-    public int hunger = 10;
-    public int cleanliness = 10;
+    public int health = 5;
+    public int hunger = 5;
+    public int cleanliness = 5;
     public int thirst = 5;
+
+
+
+    public String type= "";
 
     public VirtualPet(String petName, String color) {
         this.petName = petName;
@@ -60,6 +68,9 @@ public class VirtualPet {
         return health;
 
     }
+    public String getType() {
+        return type;
+    }
 
     public int getCleanliness() {
         return cleanliness;
@@ -76,12 +87,15 @@ public class VirtualPet {
     public int getThirst() {
         return thirst;
     }
+    public String getSpecies() {
+        return species;
+    }
 
     public void tick() {
  weight--;
  hunger++;
  boredomLevel++;
- cleanliness--;
+ cleanliness-=2;
  thirst++;
     }
 }
