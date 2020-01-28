@@ -22,7 +22,7 @@ public  class VirtualPetShelter {
         String leftAlignFormatRobotic = "| %-15s | %-15s | %-15s | %-9d | %-9s | %-9d | %-9d | %-9d | %-9d | %-9d |%n";
 
         for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
-            if (pet instanceof Organic) {
+            if (pet.getValue() instanceof Organic) {
                 System.out.printf(leftAlignFormatOrganic, pet.getValue().petName, pet.getValue().color, pet.getValue().getType() + " " + pet.getValue().getSpecies(), pet.getValue().boredomLevel, pet.getValue().cleanliness, "-", pet.getValue().health, pet.getValue().weight, pet.getValue().thirst, pet.getValue().hunger);
             } else {
                 System.out.printf(leftAlignFormatRobotic, pet.getValue().petName, pet.getValue().color, pet.getValue().getType() + " " + pet.getValue().getSpecies(), pet.getValue().boredomLevel, "-", pet.getValue().getOilLevel(), pet.getValue().health, pet.getValue().weight, pet.getValue().thirst, pet.getValue().hunger);
