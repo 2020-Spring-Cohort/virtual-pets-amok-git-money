@@ -8,6 +8,7 @@ public class Organic extends VirtualPet {
         super(petName, color);
         this.type="Organic";
         this.species=species;
+
     }
 
     public void walk() {

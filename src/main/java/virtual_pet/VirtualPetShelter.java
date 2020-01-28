@@ -13,44 +13,38 @@ public  class VirtualPetShelter {
 
 
     public  void displayAllPets() {
-//        for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
-//            System.out.println("Pet Name : " + pet.getValue().petName);
-//            System.out.println("Boredom : " + pet.getValue().boredomLevel);
-//            System.out.println("Cleanliness : " + pet.getValue().cleanliness);
-//            System.out.println("Color : " + pet.getValue().color);
-//            System.out.println("Health : " + pet.getValue().health);
-//            System.out.println("Weight : " + pet.getValue().weight);
-//            System.out.println("Thirst : " + pet.getValue().thirst);
-//            System.out.println("Hunger :" + pet.getValue().hunger);
-//
-//
-//        }
-        String headerAlignFormat = "| %-15s | %-15s | %-15s | %-9s | %-9s | %-9s | %-9s | %-9s | %-9s |%n";
+        String headerAlignFormat = "| %-15s | %-15s | %-15s | %-9s | %-9s | %-9s | %-9s | %-9s | %-9s | %-9s |%n";
 
-        System.out.printf(headerAlignFormat, "Name ","Color","Type","Boredom ","Clean ","Health ","Weight ","Thirst ","Hunger ");
-        System.out.println("+-----------------+-----------------+-----------------+-----------+-----------+-----------+-----------+-----------+-----------+");
+        System.out.printf(headerAlignFormat, "Name ","Color","Type","Boredom ","Clean","Oil","Health ","Weight ","Thirst ","Hunger ");
+        System.out.println("+-----------------+-----------------+-----------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+");
 
-        String leftAlignFormat = "| %-15s | %-15s | %-15s | %-9d | %-9d | %-9d | %-9d | %-9d | %-9d |%n";
+        String leftAlignFormatOrganic = "| %-15s | %-15s | %-15s | %-9d | %-9d | %-9s | %-9d | %-9d | %-9d | %-9d |%n";
+        String leftAlignFormatRobotic = "| %-15s | %-15s | %-15s | %-9d | %-9s | %-9d | %-9d | %-9d | %-9d | %-9d |%n";
+
         for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
-            System.out.printf(leftAlignFormat, pet.getValue().petName, pet.getValue().color, pet.getValue().getType()+" "+pet.getValue().getSpecies(), pet.getValue().boredomLevel, pet.getValue().cleanliness, pet.getValue().health, pet.getValue().weight, pet.getValue().thirst, pet.getValue().hunger);
-            System.out.println("+-----------------+-----------------+-----------------+-----------+-----------+-----------+-----------+-----------+-----------+");
-
-
+            if (pet instanceof Organic) {
+                System.out.printf(leftAlignFormatOrganic, pet.getValue().petName, pet.getValue().color, pet.getValue().getType() + " " + pet.getValue().getSpecies(), pet.getValue().boredomLevel, pet.getValue().cleanliness, "-", pet.getValue().health, pet.getValue().weight, pet.getValue().thirst, pet.getValue().hunger);
+            } else {
+                System.out.printf(leftAlignFormatRobotic, pet.getValue().petName, pet.getValue().color, pet.getValue().getType() + " " + pet.getValue().getSpecies(), pet.getValue().boredomLevel, "-", pet.getValue().getOilLevel(), pet.getValue().health, pet.getValue().weight, pet.getValue().thirst, pet.getValue().hunger);
+            }
+            System.out.println("+-----------------+-----------------+-----------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+");
 
         }
         System.out.println("");
 
-
     }
+
+
+
+
+
+
+
 
     public  void feedAPet(String name) {
         if(name.equalsIgnoreCase("All")){
             for (Map.Entry<String, VirtualPet> pet : petList.entrySet()){
                 pet.getValue().feed();
-
-                pet.getValue().tick();
-                System.out.println(pet.getValue().petName + " Has Ticked");
-
 
             }
             System.out.println("All pets have been fed");
@@ -101,7 +95,6 @@ public  class VirtualPetShelter {
         }else{
             System.out.println("That pet is not here");
         }
-        tickAllPets();
     }
 
     public  void giveWaterToPet(String name) {
@@ -115,7 +108,6 @@ public  class VirtualPetShelter {
         }else{
             System.out.println("That pet is not here");
         }
-        tickAllPets();
     }
 
     public  void cleanCage(String name) {
@@ -129,7 +121,26 @@ public  class VirtualPetShelter {
         }else{
             System.out.println("That pet is not here");
         }
-        tickAllPets();
+    }
+
+    public void fillOil(String animalToFillOil) {
+
+        if(petList.get(animalToFillOil) instanceof Robotic) {
+            ((Robotic) petList.get(animalToFillOil)).maintenance();
+            System.out.println("Maintenance successful!");
+        }else{
+            System.out.println(animalToFillOil + " is not Robotic");
+        }
+    }
+
+    public void walkAPet(String animalToWalk) {
+        if(petList.get(animalToWalk) instanceof Robotic) {
+            ((Robotic) petList.get(animalToWalk)).walk();
+            System.out.println("You walked your robotic pet");
+        } else {
+            ((Organic) petList.get(animalToWalk)).walk();
+            System.out.println("You walked your organic pet");
+        }
     }
 }
 

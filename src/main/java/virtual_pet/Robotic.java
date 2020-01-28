@@ -1,7 +1,6 @@
 package virtual_pet;
 
 public class Robotic extends VirtualPet {
-    private int oilLevel = 5;
 
 
 
@@ -11,6 +10,7 @@ public class Robotic extends VirtualPet {
         super(petName, color);
         this.type="Robotic";
         this.species= species;
+        this.oilLevel = 5;
     }
 
     public void maintenance() {
@@ -24,7 +24,6 @@ public class Robotic extends VirtualPet {
         oilLevel -= 2;
     }
 
-    public int getOilLevel() {
-        return oilLevel;
-    }
+
+
 }
