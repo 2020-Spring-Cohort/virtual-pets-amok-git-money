@@ -11,9 +11,10 @@ public abstract class VirtualPet {
     public int boredomLevel = 5;
     public int health = 5;
     public int hunger = 5;
-    public int cleanliness = 5;
+
+
     public int thirst = 5;
-    public int oilLevel = 0;
+   // public int oilLevel = 0
 
 
     public String type= "";
@@ -43,12 +44,7 @@ public abstract class VirtualPet {
             health = 10;
         }
     }
-    public void clean(){
-        cleanliness+=3;
-        if(cleanliness > 10){
-            cleanliness = 10;
-        }
-    }
+
     public void waterPet(){
         thirst-=3;
         if(thirst < 0){
@@ -72,9 +68,7 @@ public abstract class VirtualPet {
         return type;
     }
 
-    public int getCleanliness() {
-        return cleanliness;
-    }
+
 
     public int getWeight() {
         return weight;
@@ -110,12 +104,7 @@ public abstract class VirtualPet {
             System.out.println(petName + " has died of boredom. It's a thing");
             petDies();
         }
-        if(cleanliness > 0) {
-            cleanliness --;
-        }else{
-            System.out.println(petName + " has become sick and needs a vet");
 
-        }
         if(thirst < 10) {
             thirst++;
         }else{
@@ -126,15 +115,13 @@ public abstract class VirtualPet {
             System.out.println(petName + " has died");
             petDies();
         }
-        if(oilLevel < 1){
-            System.out.println(petName + " has run out of oil and need maintenance");
+
 
         }
-    }
 
-    public Object getOilLevel(){
-        return oilLevel;
-    }
+
+
+
 
 
     public void petDies() {

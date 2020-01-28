@@ -23,9 +23,9 @@ public  class VirtualPetShelter {
 
         for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
             if (pet.getValue() instanceof Organic) {
-                System.out.printf(leftAlignFormatOrganic, pet.getValue().petName, pet.getValue().color, pet.getValue().getType() + " " + pet.getValue().getSpecies(), pet.getValue().boredomLevel, pet.getValue().cleanliness, "-", pet.getValue().health, pet.getValue().weight, pet.getValue().thirst, pet.getValue().hunger);
+                System.out.printf(leftAlignFormatOrganic, pet.getValue().petName, pet.getValue().color, pet.getValue().getType() + " " + pet.getValue().getSpecies(), pet.getValue().boredomLevel, ((Organic)pet.getValue()).getCleanliness(), "-", pet.getValue().health, pet.getValue().weight, pet.getValue().thirst, pet.getValue().hunger);
             } else {
-                System.out.printf(leftAlignFormatRobotic, pet.getValue().petName, pet.getValue().color, pet.getValue().getType() + " " + pet.getValue().getSpecies(), pet.getValue().boredomLevel, "-", pet.getValue().getOilLevel(), pet.getValue().health, pet.getValue().weight, pet.getValue().thirst, pet.getValue().hunger);
+                System.out.printf(leftAlignFormatRobotic, pet.getValue().petName, pet.getValue().color, pet.getValue().getType() + " " + pet.getValue().getSpecies(), pet.getValue().boredomLevel, "-", ((Robotic)pet.getValue()).getOilLevel(), pet.getValue().health, pet.getValue().weight, pet.getValue().thirst, pet.getValue().hunger);
             }
             System.out.println("+-----------------+-----------------+-----------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+");
 
@@ -114,7 +114,7 @@ public  class VirtualPetShelter {
         if (petList.containsKey(name)){
             for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
                 if (pet.getKey().equals(name)) {
-                    pet.getValue().clean();
+                    ((Organic)pet.getValue()).clean();
                     System.out.println("You cleaned " + name + "'s cage.");
                 }
             }
