@@ -15,9 +15,22 @@ public class Application {
         shelter.addANewPet(new Organic("Bob", "Blue","Dog"));
         shelter.addANewPet(new Robotic("Josh", "Purple","Dog"));
 
-        System.out.println(Colors.BLUE+"|---------------------------|"+Colors.RESET);
-        System.out.println(Colors.BLUE+"|Welcome to virtual Pet Game|"+Colors.RESET);
-        System.out.println(Colors.BLUE+"|---------------------------|"+Colors.RESET);
+//        System.out.println(Colors.BLUE+"|---------------------------|"+Colors.RESET);
+//        System.out.println(Colors.BLUE+"|Welcome to virtual Pet Game|"+Colors.RESET);
+//        System.out.println(Colors.BLUE+"|---------------------------|"+Colors.RESET);
+        System.out.println();
+        System.out.println();
+        System.out.println("     /\\_/\\                            /\\_/\\");
+        System.out.println("     (^ ^)                            {@ @}");
+        System.out.println("     ==~==                            ==o==");
+        System.out.println("      \\@/                              \\^/");
+        System.out.println("      |=|                              ###_");
+        System.out.println("(    /  \\    *********************    /    \\");
+        System.out.println(" \\  /   | --------------------------- |     \\");
+        System.out.println("  )/ |||| Welcome to virtual Pet Game ||||(  \\   \\");
+        System.out.println(" (( /|||| --------------------------- |||| \\  )   )");
+        System.out.println("   m !m!m    *********************    m!m! m-~(__/");
+
         System.out.println("");
 
 
@@ -122,7 +135,7 @@ public class Application {
                    String colorOfNewRoboticPet = input.nextLine();
                    System.out.println(Colors.YELLOW+"Enter species of pet ('Cat' or 'Dog')"+Colors.RESET);
                    String speciesOfNewRoboticPet = input.nextLine();
-                   shelter.addANewPet(new Organic(nameOfNewRoboticPet, colorOfNewRoboticPet,speciesOfNewRoboticPet));
+                   shelter.addANewPet(new Robotic(nameOfNewRoboticPet, colorOfNewRoboticPet,speciesOfNewRoboticPet));
                    System.out.println(Colors.GREEN+nameOfNewRoboticPet + " has been added to the shelter"+Colors.RESET);
                    break;
                case 11:

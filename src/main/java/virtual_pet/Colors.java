@@ -12,4 +12,10 @@ public class Colors {
     public static final String PURPLE = "\033[0;35m";  // PURPLE
     public static final String CYAN = "\033[0;36m";    // CYAN
     public static final String WHITE = "\033[0;37m";   // WHITE
+    public static final String BLACK_BG = "\033[40m";
+    public static final String WHITE_BG = "\033[47m";
+    public static final String YELLOW_BG = "\033[43m"; // YELLOW
+    public static final String WHITE_UL = "\033[4;37m";  // WHITE
+    public static final String PURPLE_BOLD = "\033[1;35m"; // PURPLE
+    public static final String BLUE_BOLD = "\033[1;34m";   // BLUE
 }

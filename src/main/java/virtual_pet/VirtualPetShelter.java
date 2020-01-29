@@ -14,21 +14,21 @@ public  class VirtualPetShelter {
 
 
     public  void displayAllPets() {
-        String headerAlignFormat = Colors.BLUE+"| %-15s | %-15s | %-15s | %-9s | %-9s | %-9s | %-9s | %-9s | %-9s | %-9s |%n"+Colors.RESET;
+        String headerAlignFormat = Colors.PURPLE_BOLD+"| %-15s | %-10s | %-12s | %-8s | %-7s | %-7s | %-7s | %-7s | %-7s | %-7s |%n"+Colors.RESET;
 
-        System.out.printf(headerAlignFormat,"Name ","Color","Type","Boredom ","Clean","Oil","Health ","Weight ","Thirst ","Hunger ");
-        System.out.println(Colors.BLUE+"+-----------------+-----------------+-----------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+"+Colors.RESET);
+        System.out.printf(headerAlignFormat,"Name ","Color","Type","Boredom ","Clean","Oil","Health ","Weight ","Thirst ","Hunger " +Colors.RESET);
+        System.out.println(Colors.PURPLE+"+-----------------+------------+--------------+----------+---------+---------+---------+---------+---------+---------+"+Colors.RESET);
 
-        String leftAlignFormatOrganic = Colors.BLUE+"| %-15s | %-15s | %-15s | %-9d | %-9d | %-9s | %-9d | %-9d | %-9d | %-9d |%n"+Colors.RESET;
-        String leftAlignFormatRobotic = Colors.BLUE+"| %-15s | %-15s | %-15s | %-9d | %-9s | %-9d | %-9d | %-9d | %-9d | %-9d |%n"+Colors.RESET;
+        String leftAlignFormatOrganic = Colors.PURPLE+"| %-15s | %-10s | %-12s | %-8d | %-7d | %-7s | %-7d | %-7d | %-7d | %-7d |%n"+Colors.RESET;
+        String leftAlignFormatRobotic = Colors.PURPLE+"| %-15s | %-10s | %-12s | %-8d | %-7s | %-7d | %-7d | %-7s | %-7s | %-7s |%n"+Colors.RESET;
 
         for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
             if (pet.getValue() instanceof Organic) {
                 System.out.printf(leftAlignFormatOrganic, pet.getValue().petName, pet.getValue().color, pet.getValue().getType() + " " + pet.getValue().getSpecies(), pet.getValue().boredomLevel, ((Organic)pet.getValue()).getCleanliness(), "-", pet.getValue().health, pet.getValue().weight, pet.getValue().thirst, pet.getValue().hunger);
             } else {
-                System.out.printf(leftAlignFormatRobotic, pet.getValue().petName, pet.getValue().color, pet.getValue().getType() + " " + pet.getValue().getSpecies(), pet.getValue().boredomLevel, "-", ((Robotic)pet.getValue()).getOilLevel(), pet.getValue().health, pet.getValue().weight, pet.getValue().thirst, pet.getValue().hunger);
+                System.out.printf(leftAlignFormatRobotic, pet.getValue().petName, pet.getValue().color, pet.getValue().getType() + " " + pet.getValue().getSpecies(), pet.getValue().boredomLevel, "-", ((Robotic)pet.getValue()).getOilLevel(), pet.getValue().health, "-", "-", "-");
             }
-            System.out.println(Colors.BLUE+"+-----------------+-----------------+-----------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+"+Colors.RESET);
+            System.out.println(Colors.PURPLE+"+-----------------+------------+--------------+----------+---------+---------+---------+---------+---------+---------+"+Colors.RESET);
 
         }
         System.out.println("");
