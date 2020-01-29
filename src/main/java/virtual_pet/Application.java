@@ -5,6 +5,7 @@ import javax.naming.Name;
 import java.util.Scanner;
 
 public class Application {
+
    static int quitGame = 0;
 
 
@@ -14,9 +15,9 @@ public class Application {
         shelter.addANewPet(new Organic("Bob", "Blue","Dog"));
         shelter.addANewPet(new Robotic("Josh", "Purple","Dog"));
 
-        System.out.println("|---------------------------|");
-        System.out.println("|Welcome to virtual Pet Game|");
-        System.out.println("|---------------------------|");
+        System.out.println(Colors.BLUE+"|---------------------------|"+Colors.RESET);
+        System.out.println(Colors.BLUE+"|Welcome to virtual Pet Game|"+Colors.RESET);
+        System.out.println(Colors.BLUE+"|---------------------------|"+Colors.RESET);
         System.out.println("");
 
 
@@ -33,18 +34,18 @@ public class Application {
         }
 
     public  static void menu(){
-        System.out.println("MENU");
-        System.out.println("[1] See list of pets");
-        System.out.println("[2] Feed the pet");
-        System.out.println("[3] Take the pet to the doctor");
-        System.out.println("[4] Play with the pet");
-        System.out.println("[5] Give water to the pet");
-        System.out.println("[6] Clean the pet cage");
-        System.out.println("[7] Fill oil robotic pet");
-        System.out.println("[8] Walk a pet");
-        System.out.println("[9] Add A New Organic Pet");
-        System.out.println("[10] Add A New Robotic Pet");
-        System.out.println("[11] Quit Game");
+        String menuAlignFormat = Colors.BLUE+" %-25s  %-25s %n"+Colors.RESET;
+
+        System.out.println("                        "+"MENU"+"          ");
+        System.out.println("");
+        System.out.printf(menuAlignFormat,"[1] See list of pets","[7] Fill oil robotic pet");
+        System.out.printf(menuAlignFormat,"[2] Feed the pet","[8] Walk a pet");
+        System.out.printf(menuAlignFormat,"[3] Bring Pet to Vet","[9] Add A New Organic Pet");
+        System.out.printf(menuAlignFormat,"[4] Play with the pet","[10] Add A New Robotic Pet");
+        System.out.printf(menuAlignFormat,"[5] Give water to the pet","[11] Quit Game");
+        System.out.printf(menuAlignFormat,"[6] Clean the pet cage","");
+
+
 
 
 
@@ -62,70 +63,70 @@ public class Application {
                    shelter.displayAllPets();
                    break;
                case 2:
-                   System.out.println("Enter name of pet to feed" + "\n"+ "Enter \"all\" if you want to feed all the pets");
+                   System.out.println(Colors.YELLOW+"Enter name of pet to feed" + "\n"+ "Enter \"all\" if you want to feed all the pets"+Colors.RESET);
 
                    String animalToFeed=input.nextLine();
                    shelter.feedAPet(animalToFeed);
                    shelter.tickAllPets();
                    break;
                case 3:
-                   System.out.println("Enter name of pet to take to doctor ");
+                   System.out.println(Colors.YELLOW+"Enter name of pet to take to doctor "+Colors.RESET);
                    String animalToTakeToDoctor = input.nextLine();
                    shelter.bringToVet(animalToTakeToDoctor);
                    shelter.tickAllPets();
                    break;
                case 4:
-                   System.out.println("Enter name of pet to play with");
+                   System.out.println(Colors.YELLOW+"Enter name of pet to play with"+Colors.RESET);
                    String animalToPlayWith = input.nextLine();
                    shelter.playWithPet(animalToPlayWith);
                    shelter.tickAllPets();
                    break;
                case 5:
-                   System.out.println("Enter name of pet to water");
+                   System.out.println(Colors.YELLOW+"Enter name of pet to water"+Colors.RESET);
                    String animalToWater = input.nextLine();
                    shelter.giveWaterToPet(animalToWater);
                    shelter.tickAllPets();
                    break;
                case 6:
-                   System.out.println("Enter name of pet to clean their cage");
+                   System.out.println(Colors.YELLOW+"Enter name of pet to clean their cage"+Colors.RESET);
                    String animalToClean = input.nextLine();
                    shelter.cleanCage(animalToClean);
                    shelter.tickAllPets();
                    break;
                case 7:
-                   System.out.println("Enter name of pet to fill their oil");
+                   System.out.println(Colors.YELLOW+"Enter name of pet to fill their oil"+Colors.RESET);
                    String animalToFillOil = input.nextLine();
                    shelter.fillOil(animalToFillOil);
                    shelter.tickAllPets();
                    break;
                case 8:
-                   System.out.println("Enter name of pet to walk");
+                   System.out.println(Colors.YELLOW+"Enter name of pet to walk"+Colors.RESET);
                    String animalToWalk = input.nextLine();
                    shelter.walkAPet(animalToWalk);
                    shelter.tickAllPets();
                    break;
                case 9:
-                   System.out.println("Enter name of new Organic pet");
+                   System.out.println(Colors.YELLOW+"Enter name of new Organic pet"+Colors.RESET);
                    String nameOfNewOrganicPet = input.nextLine();
-                   System.out.println("Enter color for new  Organic pet");
+                   System.out.println(Colors.YELLOW+"Enter color for new  Organic pet"+Colors.RESET);
                    String colorOfNewOrganicPet = input.nextLine();
-                   System.out.println("Enter species of pet ('Cat' or 'Dog'");
+                   System.out.println(Colors.YELLOW+"Enter species of pet ('Cat' or 'Dog'"+Colors.RESET);
                    String speciesOfNewOrganicPet = input.nextLine();
                    shelter.addANewPet(new Organic(nameOfNewOrganicPet, colorOfNewOrganicPet,speciesOfNewOrganicPet));
-                   System.out.println(nameOfNewOrganicPet + " has been added to the shelter");
+                   System.out.println(Colors.GREEN+nameOfNewOrganicPet + " has been added to the shelter"+Colors.RESET);
                    break;
                case 10:
-                   System.out.println("Enter name of new Robotic pet");
+                   System.out.println(Colors.YELLOW+"Enter name of new Robotic pet"+Colors.RESET);
                    String nameOfNewRoboticPet = input.nextLine();
-                   System.out.println("Enter color for new  Robotic pet");
+                   System.out.println(Colors.YELLOW+"Enter color for new  Robotic pet"+Colors.RESET);
                    String colorOfNewRoboticPet = input.nextLine();
-                   System.out.println("Enter species of pet ('Cat' or 'Dog'");
+                   System.out.println(Colors.YELLOW+"Enter species of pet ('Cat' or 'Dog')"+Colors.RESET);
                    String speciesOfNewRoboticPet = input.nextLine();
                    shelter.addANewPet(new Organic(nameOfNewRoboticPet, colorOfNewRoboticPet,speciesOfNewRoboticPet));
-                   System.out.println(nameOfNewRoboticPet + " has been added to the shelter");
+                   System.out.println(Colors.GREEN+nameOfNewRoboticPet + " has been added to the shelter"+Colors.RESET);
                    break;
                case 11:
-                   System.out.println("Exited Game");
+                   System.out.println(Colors.GREEN+"Exited Game"+Colors.RESET);
                    quitGame = 1;
                    break;
 

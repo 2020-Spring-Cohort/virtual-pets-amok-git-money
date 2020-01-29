@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public  class VirtualPetShelter {
+    String warningMessage = Colors.RED+"That Animal is not here !"+Colors.RESET;
     public  Map<String, VirtualPet> petList = new HashMap<>();
 
     public  void addANewPet(VirtualPet virtualPet) {
@@ -13,13 +14,13 @@ public  class VirtualPetShelter {
 
 
     public  void displayAllPets() {
-        String headerAlignFormat = "| %-15s | %-15s | %-15s | %-9s | %-9s | %-9s | %-9s | %-9s | %-9s | %-9s |%n";
+        String headerAlignFormat = Colors.BLUE+"| %-15s | %-15s | %-15s | %-9s | %-9s | %-9s | %-9s | %-9s | %-9s | %-9s |%n"+Colors.RESET;
 
-        System.out.printf(headerAlignFormat, "Name ","Color","Type","Boredom ","Clean","Oil","Health ","Weight ","Thirst ","Hunger ");
-        System.out.println("+-----------------+-----------------+-----------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+");
+        System.out.printf(headerAlignFormat,"Name ","Color","Type","Boredom ","Clean","Oil","Health ","Weight ","Thirst ","Hunger ");
+        System.out.println(Colors.BLUE+"+-----------------+-----------------+-----------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+"+Colors.RESET);
 
-        String leftAlignFormatOrganic = "| %-15s | %-15s | %-15s | %-9d | %-9d | %-9s | %-9d | %-9d | %-9d | %-9d |%n";
-        String leftAlignFormatRobotic = "| %-15s | %-15s | %-15s | %-9d | %-9s | %-9d | %-9d | %-9d | %-9d | %-9d |%n";
+        String leftAlignFormatOrganic = Colors.BLUE+"| %-15s | %-15s | %-15s | %-9d | %-9d | %-9s | %-9d | %-9d | %-9d | %-9d |%n"+Colors.RESET;
+        String leftAlignFormatRobotic = Colors.BLUE+"| %-15s | %-15s | %-15s | %-9d | %-9s | %-9d | %-9d | %-9d | %-9d | %-9d |%n"+Colors.RESET;
 
         for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
             if (pet.getValue() instanceof Organic) {
@@ -27,7 +28,7 @@ public  class VirtualPetShelter {
             } else {
                 System.out.printf(leftAlignFormatRobotic, pet.getValue().petName, pet.getValue().color, pet.getValue().getType() + " " + pet.getValue().getSpecies(), pet.getValue().boredomLevel, "-", ((Robotic)pet.getValue()).getOilLevel(), pet.getValue().health, pet.getValue().weight, pet.getValue().thirst, pet.getValue().hunger);
             }
-            System.out.println("+-----------------+-----------------+-----------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+");
+            System.out.println(Colors.BLUE+"+-----------------+-----------------+-----------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+"+Colors.RESET);
 
         }
         System.out.println("");
@@ -47,19 +48,19 @@ public  class VirtualPetShelter {
                 pet.getValue().feed();
 
             }
-            System.out.println("All pets have been fed");
+            System.out.println(Colors.GREEN+"All pets have been fed"+Colors.RESET);
         }
         else if (petList.containsKey(name)) {
             for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
                 if (pet.getKey().equals(name)) {
                     pet.getValue().feed();
-                    System.out.println(name + " Has been fed");
+                    System.out.println(Colors.GREEN+name + " Has been fed"+Colors.RESET);
                 }
             }
 
 
         } else {
-            System.out.println("That animal is not here");
+            System.out.println(warningMessage);
         }
 
     }
@@ -70,11 +71,11 @@ public  class VirtualPetShelter {
         for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
             if (pet.getKey().equals(name)) {
                 pet.getValue().takeToDoctor();
-                System.out.println(name + " Has been gone to the doctor");
+                System.out.println(Colors.GREEN+name + " Has been gone to the doctor"+Colors.RESET);
             }
         }
         }else{
-            System.out.println("That pet is not here");
+            System.out.println(warningMessage);
         }
         tickAllPets();
     }
@@ -89,11 +90,11 @@ public  class VirtualPetShelter {
             for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
                 if (pet.getKey().equals(name)) {
                     pet.getValue().play();
-                    System.out.println("You played with " + name);
+                    System.out.println(Colors.GREEN+"You played with " + name+Colors.RESET);
                 }
             }
         }else{
-            System.out.println("That pet is not here");
+            System.out.println(warningMessage);
         }
     }
 
@@ -102,11 +103,11 @@ public  class VirtualPetShelter {
             for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
                 if (pet.getKey().equals(name)) {
                     pet.getValue().waterPet();
-                    System.out.println("You gave water to " + name);
+                    System.out.println(Colors.GREEN+"You gave water to " + name+Colors.RESET);
                 }
             }
         }else{
-            System.out.println("That pet is not here");
+            System.out.println(warningMessage);
         }
     }
 
@@ -115,11 +116,11 @@ public  class VirtualPetShelter {
             for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
                 if (pet.getKey().equals(name)) {
                     ((Organic)pet.getValue()).clean();
-                    System.out.println("You cleaned " + name + "'s cage.");
+                    System.out.println(Colors.GREEN+"You cleaned " + name + "'s cage."+Colors.RESET);
                 }
             }
         }else{
-            System.out.println("That pet is not here");
+            System.out.println(warningMessage);
         }
     }
 
@@ -127,19 +128,19 @@ public  class VirtualPetShelter {
 
         if(petList.get(animalToFillOil) instanceof Robotic) {
             ((Robotic) petList.get(animalToFillOil)).maintenance();
-            System.out.println("Maintenance successful!");
+            System.out.println(Colors.GREEN+"Maintenance successful!"+Colors.RESET);
         }else{
-            System.out.println(animalToFillOil + " is not Robotic");
+            System.out.println(Colors.RED+animalToFillOil + " is not Robotic"+Colors.RESET);
         }
     }
 
     public void walkAPet(String animalToWalk) {
         if(petList.get(animalToWalk) instanceof Robotic) {
             ((Robotic) petList.get(animalToWalk)).walk();
-            System.out.println("You walked your robotic pet");
+            System.out.println(Colors.GREEN+"You walked your robotic pet"+Colors.RESET);
         } else {
             ((Organic) petList.get(animalToWalk)).walk();
-            System.out.println("You walked your organic pet");
+            System.out.println(Colors.GREEN+"You walked your organic pet"+Colors.RESET);
         }
     }
 }
