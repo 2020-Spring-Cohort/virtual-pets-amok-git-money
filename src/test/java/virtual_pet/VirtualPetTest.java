@@ -7,11 +7,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class VirtualPetTest {
 
     private VirtualPet underTest;
-
-    @BeforeEach
-    void setUp() {
-        underTest = new VirtualPet("BOB", "black");
-    }
+//
+//    @BeforeEach
+//    void setUp() {
+//        underTest = new VirtualPet("BOB", "black");
+//    }
 
     @Test
     public void shouldBeAbleToCreatePet() {

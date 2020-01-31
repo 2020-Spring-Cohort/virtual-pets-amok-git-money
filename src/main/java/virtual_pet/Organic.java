@@ -74,7 +74,7 @@ public class Organic extends VirtualPet {
             cleanliness--;
         }
         else{
-            System.out.println(Colors.RED+ petName + "Has a dirty cage"+Colors.RESET);
+            System.out.println(Colors.RED+ petName + " has a dirty cage"+Colors.RESET);
             health--;
 
         }

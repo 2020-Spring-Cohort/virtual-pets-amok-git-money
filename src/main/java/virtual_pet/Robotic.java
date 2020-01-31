@@ -17,7 +17,7 @@ public class Robotic extends VirtualPet {
 
     public void maintenance() {
 
-            oilLevel += 2;
+            oilLevel += 3;
 
     }
 

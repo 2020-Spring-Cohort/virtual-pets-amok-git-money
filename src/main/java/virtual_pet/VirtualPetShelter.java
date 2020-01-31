@@ -77,7 +77,7 @@ public  class VirtualPetShelter {
         }else{
             System.out.println(warningMessage);
         }
-        tickAllPets();
+
     }
     public  void tickAllPets(){
         for (Map.Entry<String, VirtualPet> pet : petList.entrySet()) {
